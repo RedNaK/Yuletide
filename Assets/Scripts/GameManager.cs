@@ -29,11 +29,15 @@ public class GameManager : MonoBehaviour
     /// Whether the game was paused.
     /// </summary>
     public bool paused { get; private set; }
+    public bool overlayActive { get; private set; }
 
     private int launch = 0;
     public bool resetData = false;
-    public bool overlayActive = false;
+    
     public int animating = 0;
+
+    public GameObject mainpopup;
+    public PopupContent test;
 
     /// <summary>
     /// Retrieve the instance of the game manager.
@@ -71,12 +75,31 @@ public class GameManager : MonoBehaviour
 
         paused = false;
         overlayActive = false;
+        closePopup();
         LoadGame();
     }
 	
 	// Update is called once per frame
 	void Update ()
 	{
+        if (overlayActive)
+        {
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetMouseButtonDown(0))
+            {
+                closePopup();
+            }
+        }
+        //uncomment if it is needed to test easily a popup opening
+        /*
+        else
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                setPopupContent(test);
+                openPopup();
+            }
+        }*/
+
         // Pause and unpause the game
         if (Input.GetButtonDown("Pause Menu"))
             {
@@ -112,6 +135,39 @@ public class GameManager : MonoBehaviour
 		    }
     #endif
 	}
+
+    public void setPopupContent(PopupContent pContent)
+    {
+        mainpopup.GetComponentInChildren<Canvas>().enabled = false;
+        Image[] imgpopup = mainpopup.GetComponentsInChildren<Image>();
+        imgpopup[1].sprite = pContent.popupImage;
+        Text[] textpopup = mainpopup.GetComponentsInChildren<Text>();
+        textpopup[0].text = pContent.titre;
+        textpopup[1].text = pContent.contenu;
+    }
+
+    public void openPopup()
+    {
+        if (overlayActive) { return; }
+        //Debug.Log("animating" + animating);
+        if (animating > 0)
+        {
+            Invoke("openPopup", 1f);
+        }
+        else
+        {
+            Debug.Log("salut");
+            mainpopup.GetComponentInChildren<Canvas>().enabled = true;
+            overlayActive = true;
+        }
+    }
+
+    public void closePopup()
+    {
+        mainpopup.GetComponentInChildren<Canvas>().enabled = false;
+        overlayActive = false;
+    }
+
 
     /// <summary>
     /// Fired When the player selects the restart button.

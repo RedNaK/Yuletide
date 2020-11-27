@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
             }
         }
         //uncomment if it is needed to test easily a popup opening
-        /*
+        
         else
         {
             if (Input.GetMouseButtonDown(1))
@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
                 setPopupContent(test);
                 openPopup();
             }
-        }*/
+        }
 
         // Pause and unpause the game
         if (Input.GetButtonDown("Pause Menu"))

@@ -12,7 +12,7 @@ public class FollowCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        transform.position = new Vector3(transform.position.x, Pointer.transform.position.y, transform.position.z);
     }
 
     // Update is called once per frame
@@ -30,7 +30,13 @@ public class FollowCamera : MonoBehaviour
         else {
             nextY = Pointer.transform.position.y;
         }
-        Debug.Log("nextY: " + nextY + " - Y pointer: " + Pointer.transform.position.y);
-        transform.position = new Vector3(transform.position.x, nextY, transform.position.z);
+        //Debug.Log("nextY: " + nextY + " - Y pointer: " + Pointer.transform.position.y);
+        Debug.Log("transform.position:"+ transform.position.y+ " - Pointer.transform.position.y: " + Pointer.transform.position.y);
+        Debug.Log(transform.position.y - nextY);
+        // if (transform.position.y - nextY > 0.5f || transform.position.y - nextY < -0.5f) {
+        //public nextPos = ;
+        //transform.position = Vector3.Slerp(transform.position, nextPos + CameraOffset, 0.5f);
+        transform.position = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, nextY, 2 * Time.deltaTime), transform.position.z);
+       // }
     }
 }

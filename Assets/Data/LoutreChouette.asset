@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6e2f050946521141a4eeedcd6f66f79, type: 3}
+  m_Name: LoutreChouette
+  m_EditorClassIdentifier: 
+  qui: "Chacha \xE0 toujours de bonne id\xE9e ! Allez la voir ! Turlututu !"
+  qui2: "Dep\xEAchez vous d\u2019aller voir Chacha ! Elle adore se poser en hauteur
+    ! Turlututu !"
+  ouobjet: "\xC0 ce stade c\u2019est une cafeti\xE8re enti\xE8re qu\u2019il nous
+    faut ! Turlututu !"
+  aquiobjet: "D\xE9p\xEAchez vous un peu ! Chacha va finir par s\u2019endormir !"
+  ouobjetdeco: "Le gui ? \xC7a pousse dans les arbres ! Turlututu !"

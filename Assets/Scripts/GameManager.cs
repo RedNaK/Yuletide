@@ -93,7 +93,6 @@ public class GameManager : MonoBehaviour
         autorizedObject = new string[5,4];
 
         autorizedObject[0,0] = "dialogue";
-        Debug.Log(autorizedObject[0,0]);
         autorizedObject[0,1] = "lunette";
         autorizedObject[0,2] = "dialogue";
         

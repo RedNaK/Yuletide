@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popupImage: {fileID: 21300000, guid: 30dcd8a61fa4fef45ad403f119e41d63, type: 3}
   nomPerso: Mocha
-  nope: Me parle pas
-  probleme: Prob1
-  probleme2: Prob2
-  indication: Objet
-  rappel: Rappel objet
-  fin: Fin
+  nope: 'Aglagla ! Vraiment pas le temps ! Flap Flap ! '
+  probleme: "Je me suis r\xE9veill\xE9e trop t\xF4t ! J\u2019ai tellement faim !
+    Flap Flap !"
+  probleme2: "Il ne vous reste pas une part de g\xE2teau ? Flap Flap !"
+  indication: "Miam miam ! C\u2019est pas trop t\xF4t ! / Vous ne cherchez pas une
+    \xE9toile par hasard ? Flap Flap !"
+  rappel: "Une \xE9toile, il vous faut une \xE9toile ! Flap Flap !"
+  fin: "Je vous rejoins peut-\xEAtre tout \xE0 l\u2019heure\u2026 Si je n\u2019ai
+    pas mieux \xE0 faire ! Flap Flap !"

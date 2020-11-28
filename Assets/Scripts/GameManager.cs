@@ -280,7 +280,7 @@ public class GameManager : MonoBehaviour
             questID++;
             questStep = 0;
         }
-        else if (questID != 0 && questStep >= 5)
+        else if (questID != 0 && questStep >= 4)
         {
             questID++;
             questStep = 0;

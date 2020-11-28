@@ -30,10 +30,12 @@ public class Clickable : MonoBehaviour
             {
                 if (isObjetPerso)
                 {
+                    aS.volume = 0.5f;
                     aS.PlayOneShot(clicChar);
                 }
                 else
                 {
+                    aS.volume = 1f;
                     aS.PlayOneShot(clicObjet);
                 }
                 GetComponent<SpriteRenderer>().enabled = false;
@@ -48,6 +50,7 @@ public class Clickable : MonoBehaviour
         }
         else
         {
+            aS.volume = 1f;
             aS.PlayOneShot(clicEmpty);
         }
     }

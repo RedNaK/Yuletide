@@ -18,6 +18,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     private bool isDragging;
     private PointerEventData lastEventData ;
 
+    public float rateL = 2f;
+
     public void Start()
     {
         thisHeight = GetComponent<SpriteRenderer>().bounds.size.y/2;
@@ -68,7 +70,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             Vector3 newPos = (ray.origin + ray.direction * distance) + dragHandle;
             if (Mathf.Abs(newPos.y - transform.position.y) > 0.1f)
             {
-                transform.position = Mathf.Lerp(transform.position, newPos, 2 * Time.deltaTime);
+                transform.position = new Vector3 (Mathf.Lerp(transform.position.x, newPos.x, rateL * Time.deltaTime), Mathf.Lerp(transform.position.y, newPos.y, rateL * Time.deltaTime), transform.position.z);
             }
         }
 

@@ -15,6 +15,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public AudioClip coller;
 
     private float preWait;
+    private bool isDragging;
+    private PointerEventData lastEventData ;
 
     public void Start()
     {
@@ -39,41 +41,49 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         nearestDZ = parentDZ;
         parentDZ.dropping(true);
         preWait = Time.time + 0.24f;
+        isDragging = true;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        //Debug.Log("on drag");
-        // Vector3.up makes it move in the world x/z plane.
+        lastEventData = eventData;
+    }
 
+    void Update()
+    {
+        /*reactiver si possible de gérer souci de je bouge, mais je m'arrête avant que ça ne gère, si souris ne bouge pas, cette fonction n'est pas appelée...*/
+        /*
         if (preWait > Time.time)
         {
-            //return; /*eactiver si possible de gérer souci de je bouge, mais je m'arrête avant que ça ne gère, si souris ne bouge pas, cette fonction n'est pas appelée...*/
+            return; 
         }
+        */
+        if (!isDragging) { return; }
 
         Plane plane = new Plane(Vector3.forward, transform.position);
-
-        Ray ray = eventData.pressEventCamera.ScreenPointToRay(eventData.position);
+        Ray ray = lastEventData.pressEventCamera.ScreenPointToRay(lastEventData.position);
         float distance;
         if (plane.Raycast(ray, out distance))
         {
-            transform.position = (ray.origin + ray.direction * distance) + dragHandle;
+            Vector3 newPos = (ray.origin + ray.direction * distance) + dragHandle;
+            if (Mathf.Abs(newPos.y - transform.position.y) > 0.1f)
+            {
+                transform.position = Mathf.Lerp(transform.position, newPos, 2 * Time.deltaTime);
+            }
         }
 
-        Debug.Log("End Drag");
         /*search nearest dropzone and drop on it*/
 
         float currentNearest = 10000f;
         foreach (DropZone dz in dropeZones)
         {
-            /*passer ça en x et y uniquement déjà*/
             float dist = Vector3.Distance(transform.position - new Vector3(0f, thisHeight, 0f), dz.transform.position);
             Debug.Log(dz.name + ": " + dist);
-            
+
             if (dist < 5 && dist < currentNearest)
             {
                 currentNearest = dist;
-                if(nearestDZ != dz)
+                if (nearestDZ != dz)
                 {
                     nearestDZ.dropping(false);
                     nearestDZ = dz;
@@ -88,5 +98,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         parentDZ = nearestDZ;
         transform.position = parentDZ.transform.position + new Vector3(0f, thisHeight, 0f);
         aS.PlayOneShot(coller);
+        isDragging = false;
     }
 }

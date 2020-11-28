@@ -288,6 +288,7 @@ public class GameManager : MonoBehaviour
             if(questID >= 5)
             {
                 Debug.Log("FIN DU JEU");
+                SceneManager.LoadScene(2);
             }
         }
         Debug.Log("quête "+questID+" étape "+questStep);

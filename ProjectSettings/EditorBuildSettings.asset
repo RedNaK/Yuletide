@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/YuleTest.unity
     guid: 0bbb893da77c3a94396dfd6d46362a66
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/NKYule.unity
     guid: 0fc3994311805744db06b77f45cdcf68
   m_configObjects: {}

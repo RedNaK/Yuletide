@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 35360727}
   - component: {fileID: 35360731}
   - component: {fileID: 35360730}
+  - component: {fileID: 35360733}
   - component: {fileID: 35360729}
   - component: {fileID: 35360732}
   m_Layer: 8
@@ -255,8 +256,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: {fileID: 11400000, guid: ad27bb6171ea45748b4620a92222dadb, type: 2}
-  myQuestID: -1
+  myQuestID: 0
   jesuislaloutre: 1
+  firstQui: 1
 --- !u!114 &35360730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,6 +453,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &35360733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35360726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b287d211e8f3943a4bc7b8b79b07a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Blaireau: {fileID: 11400000, guid: 19adfb8fcfa57de4bbb112b7b81b187e, type: 2}
+  Herisson: {fileID: 11400000, guid: be05aaebcfe87264284c30b29b3235fd, type: 2}
+  Chouette: {fileID: 11400000, guid: e48ba0d73f795b44090d8a8426060c9f, type: 2}
+  ChauveSouris: {fileID: 11400000, guid: df232c788a18dc8498891c3bc899d714, type: 2}
 --- !u!1 &36517730
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,7 +662,7 @@ GameObject:
   - component: {fileID: 98221638}
   - component: {fileID: 98221637}
   - component: {fileID: 98221636}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: etoile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1264,7 +1282,7 @@ GameObject:
   - component: {fileID: 311907871}
   - component: {fileID: 311907870}
   - component: {fileID: 311907869}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: caillou
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1650,7 +1668,7 @@ GameObject:
   - component: {fileID: 460823403}
   - component: {fileID: 460823402}
   - component: {fileID: 460823401}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pommedepin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1891,7 +1909,7 @@ GameObject:
   - component: {fileID: 512249717}
   - component: {fileID: 512249716}
   - component: {fileID: 512249715}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: fleur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2507,6 +2525,7 @@ MonoBehaviour:
   dialogue: {fileID: 11400000, guid: 63f49f5d997f4a74ab5d28e5cf6965ec, type: 2}
   myQuestID: 4
   jesuislaloutre: 0
+  firstQui: 1
 --- !u!114 &594971076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3047,7 +3066,7 @@ MonoBehaviour:
   resetData: 0
   animating: 0
   mainpopup: {fileID: 1272736621}
-  test: {fileID: 11400000, guid: bf9aecac6dc8d4b469c0eab7bf4e6d9b, type: 2}
+  test: {fileID: 0}
   questID: 0
   questStep: 0
   dialogueSound: {fileID: 8300000, guid: 85eab1ed01c5ab9449a356bf731aea15, type: 3}
@@ -3567,6 +3586,7 @@ MonoBehaviour:
   dialogue: {fileID: 11400000, guid: 3733b0440d9cfb944b30801aa59942f4, type: 2}
   myQuestID: 2
   jesuislaloutre: 0
+  firstQui: 1
 --- !u!114 &928340761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3783,7 +3803,7 @@ GameObject:
   - component: {fileID: 1069659608}
   - component: {fileID: 1069659607}
   - component: {fileID: 1069659606}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: gui
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4584,7 +4604,7 @@ GameObject:
   - component: {fileID: 1567722954}
   - component: {fileID: 1567722953}
   - component: {fileID: 1567722952}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lunette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4618,7 +4638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCollectible: 1
-  isObjetPerso: 0
+  isObjetPerso: 1
   isCharacter: 0
   clicObjet: {fileID: 8300000, guid: 93ddc804dcaeb664598cedd501b1a70d, type: 3}
   clicChar: {fileID: 8300000, guid: 42468d68e2d2af441834c900a676f5d3, type: 3}
@@ -4824,7 +4844,7 @@ GameObject:
   - component: {fileID: 1612236588}
   - component: {fileID: 1612236587}
   - component: {fileID: 1612236586}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: gateau
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5224,6 +5244,7 @@ MonoBehaviour:
   dialogue: {fileID: 11400000, guid: 2034b608f8303884280cc2a9658e3d11, type: 2}
   myQuestID: 1
   jesuislaloutre: 0
+  firstQui: 1
 --- !u!114 &1757321500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5535,7 +5556,7 @@ GameObject:
   - component: {fileID: 1792769779}
   - component: {fileID: 1792769778}
   - component: {fileID: 1792769777}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: peigne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6098,6 +6119,7 @@ MonoBehaviour:
   dialogue: {fileID: 11400000, guid: 0b41bac9a744a2e4fa09a5df0e906b0f, type: 2}
   myQuestID: 3
   jesuislaloutre: 0
+  firstQui: 1
 --- !u!114 &2098160359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6568,7 +6590,7 @@ GameObject:
   - component: {fileID: 819658549238826314}
   - component: {fileID: 819658549238826308}
   - component: {fileID: 819658549238826318}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ElmoRiki
   m_TagString: Untagged
   m_Icon: {fileID: 0}

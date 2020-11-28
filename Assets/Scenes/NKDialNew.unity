@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 35360730}
   - component: {fileID: 35360729}
   - component: {fileID: 35360732}
+  - component: {fileID: 35360733}
   m_Layer: 8
   m_Name: Onika_Loutre
   m_TagString: Untagged
@@ -256,6 +257,7 @@ MonoBehaviour:
   dialogue: {fileID: 11400000, guid: ad27bb6171ea45748b4620a92222dadb, type: 2}
   myQuestID: 0
   jesuislaloutre: 1
+  firstQui: 1
 --- !u!114 &35360730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,6 +452,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &35360733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35360726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b287d211e8f3943a4bc7b8b79b07a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Blaireau: {fileID: 11400000, guid: 19adfb8fcfa57de4bbb112b7b81b187e, type: 2}
+  Herisson: {fileID: 11400000, guid: be05aaebcfe87264284c30b29b3235fd, type: 2}
+  Chouette: {fileID: 11400000, guid: e48ba0d73f795b44090d8a8426060c9f, type: 2}
+  ChauveSouris: {fileID: 11400000, guid: df232c788a18dc8498891c3bc899d714, type: 2}
 --- !u!1 &36517730
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,6 +1877,7 @@ MonoBehaviour:
   dialogue: {fileID: 11400000, guid: 63f49f5d997f4a74ab5d28e5cf6965ec, type: 2}
   myQuestID: 4
   jesuislaloutre: 0
+  firstQui: 1
 --- !u!114 &594971076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2918,6 +2937,7 @@ MonoBehaviour:
   dialogue: {fileID: 11400000, guid: 3733b0440d9cfb944b30801aa59942f4, type: 2}
   myQuestID: 2
   jesuislaloutre: 0
+  firstQui: 1
 --- !u!114 &928340761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3931,6 +3951,7 @@ MonoBehaviour:
   dialogue: {fileID: 11400000, guid: 2034b608f8303884280cc2a9658e3d11, type: 2}
   myQuestID: 1
   jesuislaloutre: 0
+  firstQui: 1
 --- !u!114 &1757321500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4572,6 +4593,7 @@ MonoBehaviour:
   dialogue: {fileID: 11400000, guid: 0b41bac9a744a2e4fa09a5df0e906b0f, type: 2}
   myQuestID: 3
   jesuislaloutre: 0
+  firstQui: 1
 --- !u!114 &2098160359
 MonoBehaviour:
   m_ObjectHideFlags: 0

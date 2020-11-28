@@ -18,7 +18,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     private bool isDragging;
     private PointerEventData lastEventData ;
 
-    public float rateL = 2f;
+    public float rateL = 3f;
 
     public void Start()
     {

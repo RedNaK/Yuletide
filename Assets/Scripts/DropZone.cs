@@ -9,6 +9,7 @@ public class DropZone : MonoBehaviour
 
     public bool hasCharacter = false;
     public Light2D lightZone;
+    public GameObject Masquer;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +39,7 @@ public class DropZone : MonoBehaviour
         Debug.Log("char entering " + transform.name);
         hasCharacter = true;
         if (lightZone != null) lightZone.enabled = true ;
+        if (Masquer != null) Masquer.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     public void charExitingZone()
@@ -45,6 +47,7 @@ public class DropZone : MonoBehaviour
         Debug.Log("char exiting " + transform.name);
         hasCharacter = false;
         if (lightZone != null) lightZone.enabled = false;
+        if (Masquer != null) Masquer.GetComponent<SpriteRenderer>().enabled = true;
     }
 
     public void dropping(bool isDropping)

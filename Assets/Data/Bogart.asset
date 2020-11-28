@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd273bcb837d7324d82cf74e19f714c0, type: 3}
   m_Name: Bogart
   m_EditorClassIdentifier: 
-  popupImage: {fileID: 21300000, guid: db4a6c6abe0348a448c09c7d4c76fb99, type: 3}
+  popupImage: {fileID: 21300000, guid: 73f25b979b38fe74fa5b11d3d9c23771, type: 3}
   nomPerso: Bogart
   nope: "Scrogneugneu ! C\u2019est impossible ! Grumph !"
   probleme: "Je n\u2019arrive pas \xE0 mettre la main sur mon caillou magique ! Grumph

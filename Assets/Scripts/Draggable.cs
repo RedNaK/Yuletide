@@ -44,6 +44,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         parentDZ.dropping(true);
         preWait = Time.time + 0.24f;
         isDragging = true;
+        parentDZ.charExitingZone();
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -100,6 +101,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     {
         parentDZ = nearestDZ;
         transform.position = parentDZ.transform.position + new Vector3(0f, thisHeight, 0f);
+        parentDZ.charEnteringZone();
         aS.PlayOneShot(coller);
         isDragging = false;
     }

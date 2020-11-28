@@ -38,5 +38,6 @@ public class FollowCamera : MonoBehaviour
         //transform.position = Vector3.Slerp(transform.position, nextPos + CameraOffset, 0.5f);
         transform.position = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, nextY, 2 * Time.deltaTime), transform.position.z);
        // }
+       
     }
 }

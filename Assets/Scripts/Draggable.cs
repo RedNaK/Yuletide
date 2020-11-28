@@ -58,6 +58,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             return; 
         }
         */
+       
         if (!isDragging) { return; }
 
         Plane plane = new Plane(Vector3.forward, transform.position);

@@ -31,8 +31,8 @@ public class FollowCamera : MonoBehaviour
             nextY = Pointer.transform.position.y;
         }
         //Debug.Log("nextY: " + nextY + " - Y pointer: " + Pointer.transform.position.y);
-        Debug.Log("transform.position:"+ transform.position.y+ " - Pointer.transform.position.y: " + Pointer.transform.position.y);
-        Debug.Log(transform.position.y - nextY);
+        //Debug.Log("transform.position:"+ transform.position.y+ " - Pointer.transform.position.y: " + Pointer.transform.position.y);
+        //Debug.Log(transform.position.y - nextY);
         // if (transform.position.y - nextY > 0.5f || transform.position.y - nextY < -0.5f) {
         //public nextPos = ;
         //transform.position = Vector3.Slerp(transform.position, nextPos + CameraOffset, 0.5f);

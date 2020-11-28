@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Menu/Menu.unity
     guid: c6a7a5f2c42505444b0757022d3c29d9
-  - enabled: 0
-    path: Assets/Scenes/YuleTest.unity
-    guid: 0bbb893da77c3a94396dfd6d46362a66
-  - enabled: 0
-    path: Assets/Scenes/NKYule.unity
-    guid: 0fc3994311805744db06b77f45cdcf68
+  - enabled: 1
+    path: Assets/Scenes/NKDialNew.unity
+    guid: 52d33d9291ad3ee47904cb419f2075fc
+  - enabled: 1
+    path: Assets/Scenes/FeuArtifice.unity
+    guid: c08e29b23296a5640b61879906d3fa23
   m_configObjects: {}

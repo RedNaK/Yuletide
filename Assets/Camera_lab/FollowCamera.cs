@@ -7,7 +7,7 @@ public class FollowCamera : MonoBehaviour
 
     public GameObject Pointer;
     private float maxY = -5.5f;
-    private float miniY = -24.6f;
+    private float miniY = -27f;
     private float nextY = 0.0f;
     // Start is called before the first frame update
     void Start()

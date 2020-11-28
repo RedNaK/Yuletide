@@ -18,7 +18,7 @@ public class MenuManager : MonoBehaviour
 		if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
 		{
 			//play video et quand fini ->
-			//SceneManager.LoadScene(1);
+			SceneManager.LoadScene(1);
 		}
 	}
 }

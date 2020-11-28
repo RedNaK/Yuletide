@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Menu/Menu.unity
     guid: c6a7a5f2c42505444b0757022d3c29d9
+  - enabled: 1
+    path: Assets/Menu/Video.unity
+    guid: cbf0a64de9e2a274fa3cd1265e2fb2d7
   - enabled: 1
     path: Assets/Scenes/NKDialNew.unity
     guid: 52d33d9291ad3ee47904cb419f2075fc

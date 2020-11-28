@@ -24,6 +24,7 @@ public class Clickable : MonoBehaviour
 
     public void click()
     {
+        Debug.Log(name + " - name");
         if (dropZone.hasCharacter == true)
         {
             if (isCollectible)
@@ -37,6 +38,21 @@ public class Clickable : MonoBehaviour
                 {
                     aS.volume = 1f;
                     aS.PlayOneShot(clicObjet);
+                    if (name == "pommedepin") {
+                        GameObject.Find("pommedepin_box").GetComponent<SpriteRenderer>().enabled = true;
+                    }
+                    if (name == "gui")
+                    {
+                        GameObject.Find("gui_box").GetComponent<SpriteRenderer>().enabled = true;
+                    }
+                    if (name == "fleur")
+                    {
+                        GameObject.Find("fleur_box").GetComponent<SpriteRenderer>().enabled = true;
+                    }
+                    if (name == "etoile")
+                    {
+                        GameObject.Find("etoile_box").GetComponent<SpriteRenderer>().enabled = true;
+                    }
                 }
                 GetComponent<SpriteRenderer>().enabled = false;
                 GetComponent<Collider2D>().enabled = false;

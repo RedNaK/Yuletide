@@ -14,12 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popupImage: {fileID: 21300000, guid: b267826cd4e276a41b04f56b0a4d0069, type: 3}
   nomPerso: Onika
-  nope: 
-  probleme: "Vous avez l\u2019air bien emb\xEAt\xE9 ! Je voudrais bien vous aidez
-    mais j\u2019ai perdu mes lunettes ! Turlututu !"
-  probleme2: "Vous avez bien fouill\xE9 partout ? M\xEAme sous le sol ? Turlututu
-    !"
-  indication: "Vous \xEAtes bien brave ! / Je vous conseille d\u2019aller voir Bogart
-    ! Turlututu !"
-  rappel: 
-  fin: 
+  nope: Me parle pas
+  probleme: Prob1
+  probleme2: Prob2
+  indication: Objet
+  rappel: Rappel objet
+  fin: Fin

@@ -12,7 +12,19 @@ public class DropZone : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(lightZone != null) lightZone.enabled = false;
+        GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f);
+        GetComponent<SpriteRenderer>().enabled = false;
+        if (lightZone != null) lightZone.enabled = false;
+    }
+
+    public void startDragging()
+    {
+        GetComponent<SpriteRenderer>().enabled = true;
+    }
+
+    public void stopDragging()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
     }
 
     // Update is called once per frame
@@ -39,11 +51,11 @@ public class DropZone : MonoBehaviour
     {
         if (isDropping)
         {
-            GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 1f);
+            GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f);
         }
         else
         {
-            GetComponent<SpriteRenderer>().color = new Color(1f, 0f, 0f);
+            GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f);
         }
     }
 }

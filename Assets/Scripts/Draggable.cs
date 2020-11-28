@@ -24,6 +24,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     {
         thisHeight = GetComponent<SpriteRenderer>().bounds.size.y/2;
         transform.position = parentDZ.transform.position + new Vector3(0f, thisHeight, 0f);
+        parentDZ.dropping(true);
         dropeZones = GameObject.FindObjectsOfType<DropZone>();
         aS = GetComponent<AudioSource>();
     }
@@ -45,6 +46,12 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         preWait = Time.time + 0.24f;
         isDragging = true;
         parentDZ.charExitingZone();
+        foreach (DropZone dz in dropeZones)
+        {
+            dz.startDragging();
+        }
+
+
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -104,5 +111,9 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         parentDZ.charEnteringZone();
         aS.PlayOneShot(coller);
         isDragging = false;
+        foreach (DropZone dz in dropeZones)
+        {
+            dz.stopDragging();
+        }
     }
 }

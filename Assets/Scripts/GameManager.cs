@@ -39,6 +39,12 @@ public class GameManager : MonoBehaviour
     public GameObject mainpopup;
     public PopupContent test;
 
+    public int questID = 0;
+    public int questStep = 0;
+
+    private string[,] autorizedObject;
+    private string dialogueSuite;
+
     /// <summary>
     /// Retrieve the instance of the game manager.
     /// </summary>
@@ -77,6 +83,33 @@ public class GameManager : MonoBehaviour
         overlayActive = false;
         closePopup();
         LoadGame();
+
+        autorizedObject = new string[5,4];
+
+        autorizedObject[0,0] = "dialogue";
+        Debug.Log(autorizedObject[0,0]);
+        autorizedObject[0,1] = "lunette";
+        autorizedObject[0,2] = "dialogue";
+        
+        autorizedObject[1,0] = "dialogue";
+        autorizedObject[1,1] = "caillou";
+        autorizedObject[1,2] = "dialogue";
+        autorizedObject[1,3] = "pommedepin";
+
+        autorizedObject[2,0] = "dialogue";
+        autorizedObject[2,1] = "peigne";
+        autorizedObject[2,2] = "dialogue";
+        autorizedObject[2,3] = "fleur";
+
+        autorizedObject[3,0] = "dialogue";
+        autorizedObject[3,1] = "cafe";
+        autorizedObject[3,2] = "dialogue";
+        autorizedObject[3,3] = "gui";
+
+        autorizedObject[4,0] = "dialogue";
+        autorizedObject[4,1] = "gateau";
+        autorizedObject[4,2] = "dialogue";
+        autorizedObject[4,3] = "etoile";
     }
 	
 	// Update is called once per frame
@@ -104,8 +137,33 @@ public class GameManager : MonoBehaviour
                 RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero, Mathf.Infinity, LayerMask.GetMask("Clickable"));
                 if (hit.collider != null)
                 {
-                    Debug.Log(hit.collider.gameObject.name);
-                    hit.collider.gameObject.GetComponent<Clickable>().click();
+                    
+                    Clickable cO = hit.collider.gameObject.GetComponent<Clickable>();
+                    if (cO != null)
+                    {
+                        if (cO.isCollectible)
+                        {
+                            if (autorizedObject[questID, questStep] == hit.collider.gameObject.name)
+                            {
+                                Debug.Log("send clic " + hit.collider.gameObject.name);
+                                cO.click();
+                            }
+                            else
+                            {
+                                Debug.Log("fouille objet pas encore autorisé héhé");
+                            }
+                        }
+                        else if (cO.isCharacter)
+                        {
+                            Debug.Log("send dialogue " + hit.collider.gameObject.name);
+                            cO.click();
+                        }
+                    }
+                }
+                else
+                {
+                    /*jouer le son de fouille*/
+                    Debug.Log("fouille");
                 }
             }
         }
@@ -156,6 +214,25 @@ public class GameManager : MonoBehaviour
         textpopup[1].text = pContent.contenu;
     }
 
+    public void setPopupContent(Sprite sp, string title, string content)
+    {
+        mainpopup.GetComponentInChildren<Canvas>().enabled = false;
+        Image[] imgpopup = mainpopup.GetComponentsInChildren<Image>();
+        imgpopup[1].sprite = sp;
+        Text[] textpopup = mainpopup.GetComponentsInChildren<Text>();
+        textpopup[0].text = title;
+        if (content.IndexOf("/") != -1)
+        {
+            textpopup[1].text = content.Substring(0,content.IndexOf("/"));
+            dialogueSuite = content.Substring(content.IndexOf("/")+2);
+        }
+        else
+        {
+            textpopup[1].text = content;
+            dialogueSuite = null;
+        }
+    }
+
     public void openPopup()
     {
         if (overlayActive) { return; }
@@ -174,18 +251,64 @@ public class GameManager : MonoBehaviour
 
     public void objetTrouve()
     {
-
+        nextStep();
     }
 
     public void dialogueLu()
     {
-
+        
     }
+
+    public void dialogueNext()
+    {
+        nextStep();
+    }
+
+    public void nextStep()
+    {
+        questStep++;
+        if (questID == 0 && questStep >= 3)
+        {
+            questID++;
+            questStep = 0;
+        }
+        else if (questID != 0 && questStep >= 5)
+        {
+            questID++;
+            questStep = 0;
+
+            if(questID >= 5)
+            {
+                Debug.Log("FIN DU JEU");
+            }
+        }
+        Debug.Log("quête "+questID+" étape "+questStep);
+    }
+
+    /*
+     quest ID
+    0 = Loutre (Avant, Lunette, Maison, Aide)
+    1 = Blaireau
+    2 = Hérisson
+    3 = Chouette
+    4 = Chauve-Souris
+    */
+
+
 
     public void closePopup()
     {
-        mainpopup.GetComponentInChildren<Canvas>().enabled = false;
-        overlayActive = false;
+        if (dialogueSuite == null)
+        {
+            mainpopup.GetComponentInChildren<Canvas>().enabled = false;
+            overlayActive = false;
+        }
+        else
+        {
+            Text[] textpopup = mainpopup.GetComponentsInChildren<Text>();
+            textpopup[1].text = dialogueSuite;
+            dialogueSuite = null;
+        }
     }
 
 

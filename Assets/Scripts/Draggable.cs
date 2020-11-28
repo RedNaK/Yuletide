@@ -32,7 +32,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public void OnBeginDrag(PointerEventData eventData)
     {
         aS.PlayOneShot(decoller);
-        Debug.Log("drag start");
+        //Debug.Log("drag start");
         Plane plane = new Plane(Vector3.forward, transform.position);
 
         Ray ray = eventData.pressEventCamera.ScreenPointToRay(eventData.position);
@@ -89,7 +89,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         foreach (DropZone dz in dropeZones)
         {
             float dist = Vector3.Distance(transform.position - new Vector3(0f, thisHeight, 0f), dz.transform.position);
-            Debug.Log(dz.name + ": " + dist);
+            //Debug.Log(dz.name + ": " + dist);
 
             if (dist < 5 && dist < currentNearest)
             {

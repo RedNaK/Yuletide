@@ -8,16 +8,24 @@ public class Clickable : MonoBehaviour
 {
     public bool isCollectible = false;
     public bool isCharacter = false;
+
+    public DropZone dropZone;
     public void click()
     {
-        if (isCollectible)
+        if (dropZone.hasCharacter == true)
         {
-            GetComponent<ObjectTrouvable>().click();
-        }
+            if (isCollectible)
+            {
+                GetComponent<SpriteRenderer>().enabled = false;
+                GetComponent<Collider2D>().enabled = false;
+                GameManager.instance.objetTrouve();
+            }
 
-        if (isCharacter)
-        {
-            GetComponent<DialoguePersoManager>().click();
+            if (isCharacter)
+            {
+                GetComponent<DialoguePersoManager>().click();
+                GameManager.instance.dialogueLu();
+            }
         }
     }
 }

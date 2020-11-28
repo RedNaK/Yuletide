@@ -43,7 +43,7 @@ public class DropZone : MonoBehaviour
     public void charExitingZone()
     {
         Debug.Log("char exiting " + transform.name);
-        hasCharacter = true;
+        hasCharacter = false;
         if (lightZone != null) lightZone.enabled = false;
     }
 

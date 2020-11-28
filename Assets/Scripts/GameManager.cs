@@ -172,6 +172,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void objetTrouve()
+    {
+
+    }
+
+    public void dialogueLu()
+    {
+
+    }
+
     public void closePopup()
     {
         mainpopup.GetComponentInChildren<Canvas>().enabled = false;

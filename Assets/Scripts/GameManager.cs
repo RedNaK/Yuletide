@@ -45,6 +45,10 @@ public class GameManager : MonoBehaviour
     private string[,] autorizedObject;
     private string dialogueSuite;
 
+    public AudioClip dialogueSound;
+    public AudioClip fouilleSound;
+    private AudioSource aS;
+
     /// <summary>
     /// Retrieve the instance of the game manager.
     /// </summary>
@@ -83,6 +87,8 @@ public class GameManager : MonoBehaviour
         overlayActive = false;
         closePopup();
         LoadGame();
+
+        aS = GetComponent<AudioSource>();
 
         autorizedObject = new string[5,4];
 
@@ -150,7 +156,8 @@ public class GameManager : MonoBehaviour
                             }
                             else
                             {
-                                Debug.Log("fouille objet pas encore autorisé héhé");
+                                Debug.Log("fouille objet pas encore autorisé");
+                                aS.PlayOneShot(fouilleSound);
                             }
                         }
                         else if (cO.isCharacter)
@@ -164,6 +171,7 @@ public class GameManager : MonoBehaviour
                 {
                     /*jouer le son de fouille*/
                     Debug.Log("fouille");
+                    aS.PlayOneShot(fouilleSound);
                 }
             }
         }
@@ -246,6 +254,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("salut");
             mainpopup.GetComponentInChildren<Canvas>().enabled = true;
             overlayActive = true;
+            aS.PlayOneShot(dialogueSound);
         }
     }
 

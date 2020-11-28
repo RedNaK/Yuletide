@@ -7,6 +7,7 @@ using UnityEngine;
 public class Clickable : MonoBehaviour
 {
     public bool isCollectible = false;
+    public bool isObjetPerso = false;
     public bool isCharacter = false;
 
     private AudioSource aS;
@@ -27,7 +28,14 @@ public class Clickable : MonoBehaviour
         {
             if (isCollectible)
             {
-                aS.PlayOneShot(clicObjet);
+                if (isObjetPerso)
+                {
+                    aS.PlayOneShot(clicChar);
+                }
+                else
+                {
+                    aS.PlayOneShot(clicObjet);
+                }
                 GetComponent<SpriteRenderer>().enabled = false;
                 GetComponent<Collider2D>().enabled = false;
                 GameManager.instance.objetTrouve();
@@ -35,9 +43,7 @@ public class Clickable : MonoBehaviour
 
             if (isCharacter)
             {
-                aS.PlayOneShot(clicChar);
                 GetComponent<DialoguePersoManager>().click();
-                GameManager.instance.dialogueLu();
             }
         }
         else

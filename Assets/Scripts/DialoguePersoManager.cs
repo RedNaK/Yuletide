@@ -18,7 +18,7 @@ public class DialoguePersoManager : MonoBehaviour
     {
         string Contenu = "";
 
-        if (!jesuislaloutre)
+        if (!jesuislaloutre || GameManager.instance.questID == 0)
         {
             Debug.Log(GameManager.instance.questID + " " + GameManager.instance.questStep);
             if (GameManager.instance.questID < myQuestID)

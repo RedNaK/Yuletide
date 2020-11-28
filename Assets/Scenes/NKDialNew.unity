@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: {fileID: 11400000, guid: ad27bb6171ea45748b4620a92222dadb, type: 2}
-  myQuestID: -1
+  myQuestID: 0
   jesuislaloutre: 1
 --- !u!114 &35360730
 MonoBehaviour:
@@ -2398,7 +2398,7 @@ MonoBehaviour:
   resetData: 0
   animating: 0
   mainpopup: {fileID: 1272736621}
-  test: {fileID: 11400000, guid: bf9aecac6dc8d4b469c0eab7bf4e6d9b, type: 2}
+  test: {fileID: 0}
   questID: 0
   questStep: 0
   dialogueSound: {fileID: 8300000, guid: 85eab1ed01c5ab9449a356bf731aea15, type: 3}
@@ -5042,7 +5042,7 @@ GameObject:
   - component: {fileID: 819658549238826314}
   - component: {fileID: 819658549238826308}
   - component: {fileID: 819658549238826318}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ElmoRiki
   m_TagString: Untagged
   m_Icon: {fileID: 0}

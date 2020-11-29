@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e2f050946521141a4eeedcd6f66f79, type: 3}
   m_Name: LoutreChouette
   m_EditorClassIdentifier: 
-  qui: "Chacha \xE0 toujours de bonne id\xE9e ! Allez la voir ! Turlututu !"
-  qui2: "Dep\xEAchez vous d\u2019aller voir Chacha ! Elle adore se poser en hauteur
+  qui: "\xC0 mon avis, n\u2019importe quel peigne fera plaisir \xE0 Hank\u2026 Il
+    y en a un chez vous ? Turlututu !"
+  qui2: "Dep\xEAchez-vous d\u2019aller voir Chacha ! Elle adore se poser en hauteur
     ! Turlututu !"
-  ouobjet: "\xC0 ce stade c\u2019est une cafeti\xE8re enti\xE8re qu\u2019il nous
+  ouobjet: "\xC0 ce stade, c\u2019est une cafeti\xE8re enti\xE8re qu\u2019il nous
     faut ! Turlututu !"
-  aquiobjet: "D\xE9p\xEAchez vous un peu ! Chacha va finir par s\u2019endormir !"
+  aquiobjet: "D\xE9p\xEAchez-vous un peu ! Chacha va finir par s\u2019endormir !"
   ouobjetdeco: "Le gui ? \xC7a pousse dans les arbres ! Turlututu !"

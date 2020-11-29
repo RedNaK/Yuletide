@@ -15,7 +15,7 @@ MonoBehaviour:
   popupImage: {fileID: 21300000, guid: 801a422e3b5551e4ba52bc33166018e1, type: 3}
   nomPerso: Chacha
   nope: "Zzz\u2026 Oui quoi ? Wahou ! Zzz\u2026"
-  probleme: "Zzz\u2026 Je n\u2019ai pas dormis de la journ\xE9e\u2026 J\u2019ai besoin
+  probleme: "Zzz\u2026 Je n\u2019ai pas dormi de la journ\xE9e\u2026 J\u2019ai besoin
     d\u2019un coup de fouet ! Wahou ! Zzz\u2026"
   probleme2: "Zzz\u2026 Un caf\xE9\u2026 Il me faut un caf\xE9 ! Wahou ! Zzz\u2026"
   indication: "Glouglouglou ! Merci ! Je suis bien r\xE9veill\xE9e !!! / J\u2019ai

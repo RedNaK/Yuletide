@@ -37,13 +37,16 @@ public class GameManager : MonoBehaviour
     public int animating = 0;
 
     public GameObject mainpopup;
-    public PopupContent test;
 
     public int questID = 0;
     public int questStep = 0;
 
     private string[,] autorizedObject;
     private string dialogueSuite;
+    private Sprite repDialSprite = null;
+    private string repDialTitre;
+    private string repDialContenu;
+    private bool readyToEnd = false;
 
     public AudioClip dialogueSound;
     public AudioClip fouilleSound;
@@ -150,18 +153,18 @@ public class GameManager : MonoBehaviour
                         {
                             if (autorizedObject[questID, questStep] == hit.collider.gameObject.name)
                             {
-                                Debug.Log("send clic " + hit.collider.gameObject.name);
+                                //Debug.Log("send clic " + hit.collider.gameObject.name);
                                 cO.click();
                             }
                             else
                             {
-                                Debug.Log("fouille objet pas encore autorisé");
+                                //Debug.Log("fouille objet pas encore autorisé");
                                 aS.PlayOneShot(fouilleSound);
                             }
                         }
                         else if (cO.isCharacter)
                         {
-                            Debug.Log("send dialogue " + hit.collider.gameObject.name);
+                            //Debug.Log("send dialogue " + hit.collider.gameObject.name);
                             cO.click();
                         }
                     }
@@ -169,7 +172,7 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     /*jouer le son de fouille*/
-                    Debug.Log("fouille");
+                    //Debug.Log("fouille");
                     aS.PlayOneShot(fouilleSound);
                 }
             }
@@ -211,23 +214,19 @@ public class GameManager : MonoBehaviour
     #endif
 	}
 
-    public void setPopupContent(PopupContent pContent)
+    public void setPopupContent(Sprite sp, string title, string content, bool isRight = false)
     {
-        mainpopup.GetComponentInChildren<Canvas>().enabled = false;
+        //mainpopup.GetComponentInChildren<Canvas>().enabled = false;
         Image[] imgpopup = mainpopup.GetComponentsInChildren<Image>();
-        imgpopup[1].sprite = pContent.popupImage;
-        Text[] textpopup = mainpopup.GetComponentsInChildren<Text>();
-        textpopup[0].text = pContent.titre;
-        textpopup[1].text = pContent.contenu;
-    }
-
-    public void setPopupContent(Sprite sp, string title, string content)
-    {
-        mainpopup.GetComponentInChildren<Canvas>().enabled = false;
-        Image[] imgpopup = mainpopup.GetComponentsInChildren<Image>();
-        imgpopup[1].sprite = sp;
+        imgpopup[2].sprite = sp;
+        imgpopup[3].sprite = sp;
+        imgpopup[2].enabled = !isRight;
+        imgpopup[3].enabled = isRight;
         Text[] textpopup = mainpopup.GetComponentsInChildren<Text>();
         textpopup[0].text = title;
+        //textpopup[1].text = title;
+        //textpopup[0].enabled = !isRight;
+        //textpopup[1].enabled = isRight;
         if (content.IndexOf("/") != -1)
         {
             textpopup[1].text = content.Substring(0,content.IndexOf("/"));
@@ -243,17 +242,47 @@ public class GameManager : MonoBehaviour
     public void openPopup()
     {
         if (overlayActive) { return; }
-        //Debug.Log("animating" + animating);
-        if (animating > 0)
+
+        mainpopup.GetComponentInChildren<Canvas>().enabled = true;
+        overlayActive = true;
+        aS.PlayOneShot(dialogueSound);
+    }
+
+    public void openPopup(Sprite persoD, string nomPersoD, string dialD)
+    {
+        if (overlayActive) { return; }
+
+        repDialSprite = persoD;
+        repDialTitre = nomPersoD;
+        repDialContenu = dialD;
+
+        mainpopup.GetComponentInChildren<Canvas>().enabled = true;
+        overlayActive = true;
+        aS.PlayOneShot(dialogueSound);
+    }
+
+    public void closePopup()
+    {
+        if (repDialSprite != null)
         {
-            Invoke("openPopup", 1f);
+            setPopupContent(repDialSprite, repDialTitre, repDialContenu, true);
+            repDialSprite = null;
+        }
+        else if (dialogueSuite != null)
+        {
+            Text[] textpopup = mainpopup.GetComponentsInChildren<Text>();
+            textpopup[1].text = dialogueSuite;
+            dialogueSuite = null;
         }
         else
         {
-            Debug.Log("salut");
-            mainpopup.GetComponentInChildren<Canvas>().enabled = true;
-            overlayActive = true;
-            aS.PlayOneShot(dialogueSound);
+            mainpopup.GetComponentInChildren<Canvas>().enabled = false;
+            overlayActive = false;
+            if (readyToEnd)
+            {
+                fadeOutToEnd();
+                readyToEnd = false; /*on s'assure que ça se déclenche pas 2x*/
+            }
         }
     }
 
@@ -267,9 +296,14 @@ public class GameManager : MonoBehaviour
         nextStep();
     }
 
-    public void goToFin()
+    
+    public void fadeOutToEnd()
     {
-        /*TODO fade out invoke*/
+        /*TODO fade out en 3 secondes environ ?*/
+        Invoke("goToFireworks", 3f);
+    }
+    public void goToFireworks()
+    {
         SceneManager.LoadScene(3);
     }
 
@@ -286,11 +320,9 @@ public class GameManager : MonoBehaviour
             questID++;
             questStep = 0;
 
-            if(questID >= 5)
+            if(questID >= 5 && questStep == 1)
             {
-                Debug.Log("FIN DU JEU");
-                questID = 5;
-                SceneManager.LoadScene(3);
+                readyToEnd = true;
             }
         }
         Debug.Log("quête "+questID+" étape "+questStep);
@@ -304,23 +336,6 @@ public class GameManager : MonoBehaviour
     3 = Chouette
     4 = Chauve-Souris
     */
-
-
-
-    public void closePopup()
-    {
-        if (dialogueSuite == null)
-        {
-            mainpopup.GetComponentInChildren<Canvas>().enabled = false;
-            overlayActive = false;
-        }
-        else
-        {
-            Text[] textpopup = mainpopup.GetComponentsInChildren<Text>();
-            textpopup[1].text = dialogueSuite;
-            dialogueSuite = null;
-        }
-    }
 
 
     /// <summary>

@@ -12,13 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e2f050946521141a4eeedcd6f66f79, type: 3}
   m_Name: LoutreBlaireau
   m_EditorClassIdentifier: 
-  popupImage: {fileID: 21300000, guid: af67e52545d99da42b8ca96763105e00, type: 3}
-  nomPerso: Onika
-  qui: "Je vous conseille d\u2019aller voir Bogart ! Turlututu !"
-  qui2: "\xC0 cette heure-ci, Bogart doit s\u2019entrainer dans la foret ! Turlututu
+  qui: "\xC0 cette heure-ci, Bogart doit s\u2019entrainer dans la for\xEAt ! Turlututu
     !"
-  ouobjet: "Peut \xEAtre que Bogart \xE0 perdu son caillou pendant sa le\xE7on de
-    natation ! Turlututu !"
-  aquiobjet: "Qu\u2019est ce que tu veux que je fasse de ce caillou ! Va le donner
+  qui2: "\xC0 cette heure-ci, Bogart doit s\u2019entrainer dans la for\xEAt ! Turlututu
+    !"
+  ouobjet: "Peut-\xEAtre que Bogart a perdu son caillou pendant sa le\xE7on de natation
+    ! Turlututu !"
+  aquiobjet: "Qu\u2019est-ce que tu veux que je fasse de ce caillou ! Vas le donner
     \xE0 Bogart ! Turlututu !"
-  ouobjetdeco: "Une pomme de pin ? Vous avez essay\xE9 la foret ? Turlututu !"
+  ouobjetdeco: "Une pomme de pin ? Vous avez essay\xE9 la for\xEAt ? Turlututu !"

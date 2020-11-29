@@ -7,6 +7,7 @@ public class DialoguePersoManager : MonoBehaviour
     public DialoguePerso dialogue;
     public int myQuestID = -1;
     public bool jesuislaloutre = false;
+    public bool jesuislaboite = false;
     public bool firstQui = true;
 
     // Start is called before the first frame update
@@ -18,118 +19,148 @@ public class DialoguePersoManager : MonoBehaviour
     public void click()
     {
         string Contenu = "";
-
-        if (!jesuislaloutre || GameManager.instance.questID == 0)
+        if (!jesuislaboite)
         {
-            Debug.Log(GameManager.instance.questID + " " + GameManager.instance.questStep);
-            if (GameManager.instance.questID < myQuestID)
+            if (!jesuislaloutre || GameManager.instance.questID == 0)
             {
-                Contenu = dialogue.nope;
-            }
-            else if (GameManager.instance.questID == myQuestID)
-            {
-                switch (GameManager.instance.questStep)
+                Debug.Log(GameManager.instance.questID + " " + GameManager.instance.questStep);
+                if (GameManager.instance.questID < myQuestID)
                 {
-                    case 0:
-                        Contenu = dialogue.probleme;
-                        GameManager.instance.dialogueNext();
-                    break;
+                    Contenu = dialogue.nope;
+                }
+                else if (GameManager.instance.questID == myQuestID)
+                {
+                    switch (GameManager.instance.questStep)
+                    {
+                        case 0:
+                            Contenu = dialogue.probleme;
+                            GameManager.instance.dialogueNext();
+                            break;
 
-                    case 1:
-                        Contenu = dialogue.probleme2;
-                    break;
+                        case 1:
+                            Contenu = dialogue.probleme2;
+                            break;
 
-                    case 2:
-                        Contenu = dialogue.indication;
-                        GameManager.instance.dialogueNext();
-                        break;
+                        case 2:
+                            Contenu = dialogue.indication;
+                            GameManager.instance.dialogueNext();
+                            break;
 
-                    case 3:
-                        Contenu = dialogue.rappel;
-                        break;
+                        case 3:
+                            Contenu = dialogue.rappel;
+                            break;
+                    }
+                }
+                else
+                {
+                    Contenu = dialogue.fin;
                 }
             }
-            else
+            else if (jesuislaloutre)
             {
-                Contenu = dialogue.fin;
+                if (myQuestID == 5)
+                {
+                    Contenu = dialogue.fin;
+                }
+                else
+                {
+
+                    DialogueLoutreComponent lC = GetComponent<DialogueLoutreComponent>();
+                    DialogueLoutre bonPerso = lC.Blaireau;
+
+                    switch (GameManager.instance.questID)
+                    {
+                        case 1:
+                            bonPerso = lC.Blaireau;
+                            break;
+                        case 2:
+                            bonPerso = lC.Herisson;
+                            break;
+
+                        case 3:
+                            bonPerso = lC.Chouette;
+                            break;
+
+                        case 4:
+                            bonPerso = lC.ChauveSouris;
+                            break;
+                    }
+
+                    switch (GameManager.instance.questStep)
+                    {
+                        case 0:
+                            if (firstQui)
+                            {
+                                Contenu = bonPerso.qui;
+                                Invoke("goToSecondQui", 10f);
+                            }
+                            else
+                            {
+                                Contenu = bonPerso.qui2;
+                            }
+                            break;
+
+                        case 1:
+                            Contenu = bonPerso.ouobjet;
+                            break;
+
+                        case 2:
+                            Contenu = bonPerso.aquiobjet;
+                            break;
+
+                        case 3:
+                            Contenu = bonPerso.ouobjetdeco;
+                            break;
+                    }
+                }
             }
+            GameManager.instance.setPopupContent(dialogue.popupImage, dialogue.nomPerso, Contenu);
+            GameManager.instance.openPopup();
         }
         else
         {
-            /*je dis un truc de toute manière*/
-            /*
-            if(GameManager.instance.questStep == 2)
-            {
-                Contenu = "je suis la loutre en deux étapes / c'est un peu plus compliqué ^^";
-            }
-            else
-            {
-                Contenu = "je suis la loutre, c'est un peu plus compliqué ^^";
-            }*/
-
-            /*
-            if(GameManager.instance.questID == 0 && (GameManager.instance.questStep == 0 || GameManager.instance.questStep == 2))
-            {
-                GameManager.instance.dialogueNext();
-            }*/ 
-            DialogueLoutreComponent lC = GetComponent<DialogueLoutreComponent>();
-            DialogueLoutre bonPerso = lC.Blaireau;
+            DialogueBoiteComponent bC = GetComponent<DialogueBoiteComponent>();
+            DialogueMultiple bonDial = bC.Debut;
             switch (GameManager.instance.questID)
-            {
-                case 1:
-                    bonPerso = lC.Blaireau;
-                    break;
-                case 2:
-                    bonPerso = lC.Herisson;
-                    break;
-
-                case 3:
-                    bonPerso = lC.Chouette;
-                    break;
-
-                case 4:
-                    bonPerso = lC.ChauveSouris;
-                    break;
-            }
-
-            switch (GameManager.instance.questStep)
             {
                 case 0:
                     if (firstQui)
                     {
-                        Contenu = bonPerso.qui;
-                        Invoke("goToSecondQui", 10f);
+                        bonDial = bC.Debut;
+                        firstQui = false;
                     }
                     else
                     {
-                        Contenu = bonPerso.qui2;
+                        bonDial = bC.Onika;
                     }
                     break;
-
                 case 1:
-                    Contenu = bonPerso.ouobjet;
+                    bonDial = bC.Blaireau;
                     break;
-
                 case 2:
-                    Contenu = bonPerso.aquiobjet;
+                    bonDial = bC.Herisson;
                     break;
 
                 case 3:
-                    Contenu = bonPerso.ouobjetdeco;
+                    bonDial = bC.Chouette;
+                    break;
+
+                case 4:
+                    bonDial = bC.ChauveSouris;
+                    break;
+                case 5:
+                    bonDial = bC.Fin;
+                    GameManager.instance.dialogueNext();
                     break;
             }
-
+            GameManager.instance.setPopupContent(bonDial.persoGauche, bonDial.nomPersoGauche, bonDial.g1);
+            GameManager.instance.openPopup(bonDial.persoDroite, bonDial.nomPersoDroite, bonDial.d1);
         }
-
-        GameManager.instance.setPopupContent(dialogue.popupImage, dialogue.nomPerso, Contenu);
-        GameManager.instance.openPopup();
-        /* appelle les fonctions de gamemanager pour ouvrir la popup*/
     }
 
     public void goToSecondQui()
     {
         firstQui = false;
-        Debug.Log("hey seconde phrase");
     }
 
 }

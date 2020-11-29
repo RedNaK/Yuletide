@@ -24,7 +24,6 @@ public class Clickable : MonoBehaviour
 
     public void click()
     {
-        Debug.Log(name + " - name");
         if (dropZone.hasCharacter == true)
         {
             if (isCollectible)

@@ -28,15 +28,8 @@ public class DropZone : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void charEnteringZone()
     {
-        Debug.Log("char entering " + transform.name);
         hasCharacter = true;
         if (lightZone != null) lightZone.enabled = true ;
         if (Masquer != null) Masquer.GetComponent<SpriteRenderer>().enabled = false;
@@ -44,7 +37,6 @@ public class DropZone : MonoBehaviour
 
     public void charExitingZone()
     {
-        Debug.Log("char exiting " + transform.name);
         hasCharacter = false;
         if (lightZone != null) lightZone.enabled = false;
         if (Masquer != null) Masquer.GetComponent<SpriteRenderer>().enabled = true;

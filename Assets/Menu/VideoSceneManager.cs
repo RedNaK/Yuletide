@@ -9,7 +9,7 @@ public class VideoSceneManager : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		Invoke("next", 65f);
+		Invoke("next", 61f);
 	}
 
     private void Update()

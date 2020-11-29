@@ -3453,7 +3453,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 775950187}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.58, y: -21.76, z: -2.163003}
+  m_LocalPosition: {x: 14.77, y: -20.72, z: -2.163003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 718524000}
@@ -3694,8 +3694,8 @@ MonoBehaviour:
   animating: 0
   mainpopup: {fileID: 1272736621}
   test: {fileID: 0}
-  questID: 0
-  questStep: 0
+  questID: 4
+  questStep: 2
   dialogueSound: {fileID: 8300000, guid: 85eab1ed01c5ab9449a356bf731aea15, type: 3}
   fouilleSound: {fileID: 8300000, guid: 2768be2e11a665e4baa5964ae22c583b, type: 3}
 --- !u!114 &827130650
@@ -7195,7 +7195,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 819658549238826317}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.15, y: -24.76, z: 0}
+  m_LocalPosition: {x: 11.26, y: -23.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.5}
   m_Children:
   - {fileID: 167236778}

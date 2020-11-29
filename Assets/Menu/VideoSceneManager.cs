@@ -12,8 +12,16 @@ public class VideoSceneManager : MonoBehaviour
 		Invoke("next", 65f);
 	}
 
-	// Update is called once per frame
-	void next()
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+			SceneManager.LoadScene(2);
+		}
+    }
+
+    // Update is called once per frame
+    void next()
 	{ 
 		//play video et quand fini ->
 		SceneManager.LoadScene(2);

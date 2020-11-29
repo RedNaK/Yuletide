@@ -262,18 +262,19 @@ public class GameManager : MonoBehaviour
         nextStep();
     }
 
-    public void dialogueLu()
-    {
-        
-    }
-
     public void dialogueNext()
     {
         nextStep();
     }
 
-    public void nextStep()
+    public void goToFin()
     {
+        /*TODO fade out invoke*/
+        SceneManager.LoadScene(3);
+    }
+
+    public void nextStep()
+    {       
         questStep++;
         if (questID == 0 && questStep >= 3)
         {
@@ -288,7 +289,8 @@ public class GameManager : MonoBehaviour
             if(questID >= 5)
             {
                 Debug.Log("FIN DU JEU");
-                SceneManager.LoadScene(2);
+                questID = 5;
+                SceneManager.LoadScene(3);
             }
         }
         Debug.Log("quête "+questID+" étape "+questStep);

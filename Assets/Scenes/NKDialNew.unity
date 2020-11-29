@@ -3694,8 +3694,8 @@ MonoBehaviour:
   animating: 0
   mainpopup: {fileID: 1272736621}
   test: {fileID: 0}
-  questID: 4
-  questStep: 2
+  questID: 0
+  questStep: 0
   dialogueSound: {fileID: 8300000, guid: 85eab1ed01c5ab9449a356bf731aea15, type: 3}
   fouilleSound: {fileID: 8300000, guid: 2768be2e11a665e4baa5964ae22c583b, type: 3}
 --- !u!114 &827130650

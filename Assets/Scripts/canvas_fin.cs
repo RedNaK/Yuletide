@@ -21,6 +21,11 @@ public class canvas_fin : MonoBehaviour
                 //play video et quand fini ->
                 SceneManager.LoadScene(0);
             }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
         }
     }
 

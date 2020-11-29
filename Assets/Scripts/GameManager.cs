@@ -233,12 +233,12 @@ public class GameManager : MonoBehaviour
         //textpopup[1].enabled = isRight;
         if (content.IndexOf("/") != -1)
         {
-            textpopup[1].text = content.Substring(0,content.IndexOf("/"));
-            dialogueSuite = content.Substring(content.IndexOf("/")+2);
+            textpopup[1].text = content.Substring(0,content.IndexOf("/")).Replace("\\n", "\n");
+            dialogueSuite = content.Substring(content.IndexOf("/")+2).Replace("\\n", "\n");
         }
         else
         {
-            textpopup[1].text = content;
+            textpopup[1].text = content.Replace("\\n", "\n");
             dialogueSuite = null;
         }
     }

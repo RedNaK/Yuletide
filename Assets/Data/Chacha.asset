@@ -17,7 +17,7 @@ MonoBehaviour:
   nope: "Zzz\u2026 Oui quoi ? Wahou ! Zzz\u2026"
   probleme: "Zzz\u2026 Je n\u2019ai pas dormi de la journ\xE9e\u2026 J\u2019ai besoin
     d\u2019un coup de fouet ! Wahou ! Zzz\u2026"
-  probleme2: "Zzz\u2026 Un caf\xE9\u2026 Il me faut un caf\xE9 ! Wahou ! Zzz\u2026"
+  probleme2: "Zzz\u2026 Un caf\xE9\u2026 Il me faut un caf\xE9 !\\nWahou ! Zzz\u2026"
   indication: "Glouglouglou ! Merci ! Je suis bien r\xE9veill\xE9e !!! / J\u2019ai
     une id\xE9e ! Du gui, il vous faut du gui ! Wahou !"
   rappel: "Tchop Tchop ! Plus vite que \xE7a ! Du gui ! Wahou !"

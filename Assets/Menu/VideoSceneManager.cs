@@ -18,7 +18,12 @@ public class VideoSceneManager : MonoBehaviour
         {
 			SceneManager.LoadScene(2);
 		}
-    }
+
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			Application.Quit();
+		}
+	}
 
     // Update is called once per frame
     void next()

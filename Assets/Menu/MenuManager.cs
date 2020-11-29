@@ -20,5 +20,9 @@ public class MenuManager : MonoBehaviour
 			//play video et quand fini ->
 			SceneManager.LoadScene(1);
 		}
+
+		if (Input.GetKeyDown(KeyCode.Escape)){
+			Application.Quit();
+		}
 	}
 }

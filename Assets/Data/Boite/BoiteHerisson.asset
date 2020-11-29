@@ -16,5 +16,5 @@ MonoBehaviour:
   nomPersoGauche: Elmo
   persoDroite: {fileID: 21300000, guid: 7389febaee0213346b8707169abd7c02, type: 3}
   nomPersoDroite: Riki
-  g1: "J\u2019aime bien les pommes de pin saperlotte !"
+  g1: "J\u2019aime bien les pommes de pin !\\nSaperlotte !"
   d1: "Qu\u2019est-ce qui manque encore sapristi ?"

@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popupImage: {fileID: 21300000, guid: 73f25b979b38fe74fa5b11d3d9c23771, type: 3}
   nomPerso: Bogart
-  nope: "Scrogneugneu ! C\u2019est impossible ! Grumph !"
+  nope: "Scrogneugneu ! C\u2019est impossible !\\nGrumph !"
   probleme: "Je n\u2019arrive pas \xE0 mettre la main sur mon caillou magique ! Grumph
     !"
   probleme2: Sans mon caillou magique, je ne peux rien pour vous ! Grumph !
-  indication: "Mon caillou magique ! Vous l\u2019avez trouv\xE9 o\xF9 ? / \xC0 votre
-    place, je commencerais par chercher une pomme de pin. Grumph !"
+  indication: "Mon caillou magique !\\nVous l\u2019avez trouv\xE9 o\xF9 ? / \xC0
+    votre place, je commencerais par chercher une pomme de pin. Grumph !"
   rappel: "Une pomme de pin, c\u2019est le minimum ! Grumph !"
   fin: "D\xE9p\xEAchez-vous qu\u2019on puisse se retrouver \xE0 la f\xEAte ! Grumph
     !"

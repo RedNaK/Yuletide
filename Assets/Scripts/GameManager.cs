@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public bool paused { get; private set; }
     public bool overlayActive { get; private set; }
+    public bool popupActive { get; private set; }
 
     private int launch = 0;
     public bool resetData = false;
@@ -51,6 +52,8 @@ public class GameManager : MonoBehaviour
     public AudioClip dialogueSound;
     public AudioClip fouilleSound;
     private AudioSource aS;
+
+    public Animator fadeInOut;
 
     /// <summary>
     /// Retrieve the instance of the game manager.
@@ -88,6 +91,7 @@ public class GameManager : MonoBehaviour
 
         paused = false;
         overlayActive = false;
+        popupActive = false;
         closePopup();
         LoadGame();
 
@@ -125,7 +129,7 @@ public class GameManager : MonoBehaviour
 	{
         if (overlayActive)
         {
-            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetMouseButtonDown(0))
+            if (popupActive && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetMouseButtonDown(0)))
             {
                 closePopup();
             }
@@ -145,7 +149,7 @@ public class GameManager : MonoBehaviour
                 RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero, Mathf.Infinity, LayerMask.GetMask("Clickable"));
                 if (hit.collider != null)
                 {
-                    
+
                     Clickable cO = hit.collider.gameObject.GetComponent<Clickable>();
                     if (cO != null)
                     {
@@ -245,6 +249,7 @@ public class GameManager : MonoBehaviour
 
         mainpopup.GetComponentInChildren<Canvas>().enabled = true;
         overlayActive = true;
+        popupActive = true;
         aS.PlayOneShot(dialogueSound);
     }
 
@@ -258,6 +263,7 @@ public class GameManager : MonoBehaviour
 
         mainpopup.GetComponentInChildren<Canvas>().enabled = true;
         overlayActive = true;
+        popupActive = true;
         aS.PlayOneShot(dialogueSound);
     }
 
@@ -278,6 +284,7 @@ public class GameManager : MonoBehaviour
         {
             mainpopup.GetComponentInChildren<Canvas>().enabled = false;
             overlayActive = false;
+            popupActive = false;
             if (readyToEnd)
             {
                 fadeOutToEnd();
@@ -300,7 +307,8 @@ public class GameManager : MonoBehaviour
     public void fadeOutToEnd()
     {
         /*TODO fade out en 3 secondes environ ?*/
-        Invoke("goToFireworks", 3f);
+        fadeInOut.SetTrigger("toOpacite");
+        Invoke("goToFireworks", 2f);
     }
     public void goToFireworks()
     {
@@ -320,12 +328,14 @@ public class GameManager : MonoBehaviour
             questID++;
             questStep = 0;
 
-            if(questID >= 5 && questStep == 1)
-            {
-                readyToEnd = true;
-            }
+            
         }
-        Debug.Log("quête "+questID+" étape "+questStep);
+        else if (questID >= 5 && questStep == 1)
+        {
+            readyToEnd = true;
+            //Debug.Log("launch end game");
+        }
+        //Debug.Log("quête "+questID+" étape "+questStep);
     }
 
     /*

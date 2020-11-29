@@ -58,7 +58,7 @@ public class DialoguePersoManager : MonoBehaviour
             }
             else if (jesuislaloutre)
             {
-                if (myQuestID == 5)
+                if (GameManager.instance.questID == 5)
                 {
                     Contenu = dialogue.fin;
                 }
